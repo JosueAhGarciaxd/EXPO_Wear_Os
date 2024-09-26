@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import java.util.Calendar
 
 class activity_sueno : AppCompatActivity() {
-    private lateinit var txtHoraPartido: EditText
+    private lateinit var txtHoraSueno: EditText
     private lateinit var txtResultado: TextView
     private val sleepTracker = SleepTracker() // Instancia de SleepTracker
     private val userId = "usuarioPrueba" // ID del usuario ficticio
@@ -29,10 +29,10 @@ class activity_sueno : AppCompatActivity() {
             insets
         }
 
-        txtHoraPartido = findViewById(R.id.txtHoraPartido)
+        txtHoraSueno = findViewById(R.id.txtHoraSueno)
         txtResultado = findViewById(R.id.txtResultado)
 
-        txtHoraPartido.setOnClickListener {
+        txtHoraSueno.setOnClickListener {
             showTimePickerDialog()
         }
 
@@ -63,7 +63,7 @@ class activity_sueno : AppCompatActivity() {
                 val amPm = if (selectedHour < 12) "AM" else "PM"
                 val hourIn12Format = if (selectedHour % 12 == 0) 12 else selectedHour % 12
                 val horaSeleccionada = String.format("%02d:%02d %s", hourIn12Format, selectedMinute, amPm)
-                txtHoraPartido.setText(horaSeleccionada)
+                txtHoraSueno.setText(horaSeleccionada)
 
                 // Calcular y mostrar las horas de sueño y la hora de despertar
                 calcularHorasDeSueno(selectedHour, selectedMinute)

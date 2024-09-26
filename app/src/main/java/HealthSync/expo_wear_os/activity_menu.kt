@@ -19,7 +19,7 @@ class activity_menu : AppCompatActivity() {
             insets
         }
 
-        val siguiente = findViewById<ImageView>(R.id.imgbtnSueno)
+        val siguiente = findViewById<ImageView>(R.id.imgsueno)
 
         siguiente.setOnClickListener {
             val intent = Intent(this, activity_sueno::class.java)
