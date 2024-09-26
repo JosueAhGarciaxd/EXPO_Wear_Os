@@ -26,6 +26,13 @@ class activity_menu : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val pasos = findViewById<ImageView>(R.id.imageView2)
+
+        pasos.setOnClickListener {
+            val intent = Intent(this, activity_StepCounter::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }

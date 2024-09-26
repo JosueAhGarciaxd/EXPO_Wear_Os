@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#1E1E1E"
     tools:context=".activity_StepCounter">
-    
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
