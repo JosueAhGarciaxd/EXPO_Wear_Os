@@ -16,6 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EXPO_WEAR_OS"
         tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"> <!-- Cambiado a true para que pueda ser lanzada -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity_menu"
+            android:exported="true" />
+
         <activity
             android:name=".activity_StepCounter"
             android:exported="false" />
@@ -24,18 +38,6 @@
             android:exported="false" />
         <activity
             android:name=".activity_sueno"
-            android:exported="false" />
-        <activity
-            android:name=".activity_menu"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -43,12 +44,19 @@ class activity_sueno : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btnAtras = findViewById<ImageView>(R.id.imgatras)
+
+        btnAtras.setOnClickListener {
+            val intent = Intent(this, activity_menu::class.java)
+            startActivity(intent)
+        }
+
         // Crear usuario de prueba al iniciar la actividad
         crearUsuarioPrueba()
     }
 
     private fun crearUsuarioPrueba() {
-        sleepTracker.crearUsuarioPrueba() // Llama a la función para crear el usuario de prueba
+        sleepTracker.crearUsuarioPrueba() // Llama a la función para crear el usuario de prueba QUE NI SIRVIO
     }
 
     private fun showTimePickerDialog() {
@@ -73,12 +81,12 @@ class activity_sueno : AppCompatActivity() {
             false // false para formato de 12 horas
         )
 
-        timePickerDialog.setTitle("Selecciona la hora de dormir") // Título opcional
+        timePickerDialog.setTitle("Selecciona la hora de dormir")
         timePickerDialog.show()
     }
 
     private fun calcularHorasDeSueno(hour: Int, minute: Int) {
-        // Supongamos que el usuario quiere dormir 8 horas
+        //  8 horas de sueño por defecto
         val horasDeSueno = 8
         val calendario = Calendar.getInstance()
         calendario.set(Calendar.HOUR_OF_DAY, hour)
@@ -96,8 +104,8 @@ class activity_sueno : AppCompatActivity() {
         val hourIn12FormatDespertar = if (horaDespertar % 12 == 0) 12 else horaDespertar % 12
         val horaDespertarFormateada = String.format("%02d:%02d %s", hourIn12FormatDespertar, minutoDespertar, amPmDespertar)
 
-        // Mostrar el resultado
-        txtResultado.text = "Duerme $horasDeSueno horas.\nDespertar a las: $horaDespertarFormateada"
+        // Resultado
+        txtResultado.text = "Dormiras por $horasDeSueno horas.\nDespertaras aproximadamente a las: $horaDespertarFormateada"
 
         // Guardar las horas dormidas en Firestore
         sleepTracker.guardarHorasDormidas(userId, horasDeSueno)

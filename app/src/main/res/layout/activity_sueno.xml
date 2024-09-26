@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1E1E1E"
+    android:background="#D2CBEC"
     tools:context=".activity_sueno">
 
 
@@ -17,11 +17,13 @@
             android:id="@+id/textView2"
             android:layout_width="154dp"
             android:layout_height="20dp"
-            android:layout_marginStart="20dp"
             android:text="Ciclo de Sueño"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.073" />
@@ -31,34 +33,36 @@
             android:layout_width="200dp"
             android:layout_height="48dp"
             android:focusable="false"
-            android:hint="Selecciona hora de dormir"
+            android:hint="Hora de dormir"
+            android:textAlignment="center"
             android:textColor="#575454"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.245" />
+            app:layout_constraintVertical_bias="0.189" />
 
         <TextView
             android:id="@+id/txtResultado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:textColor="#FDFDFD"
-            android:textSize="18sp"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.593" />
+            app:layout_constraintVertical_bias="0.502" />
 
         <Button
             android:id="@+id/btnsueno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estadistica de sueño"
+            android:text="Estadistica"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,6 +70,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.915" />
+
+        <ImageView
+            android:id="@+id/imgatras"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.027"
+            app:srcCompat="@drawable/atras" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
