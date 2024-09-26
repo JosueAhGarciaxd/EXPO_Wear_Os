@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="HealthSync.expo_wear_os">
 
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.SENSOR_ACCELEROMETER"/>
@@ -19,10 +20,13 @@
             android:name=".activity_StepCounter"
             android:exported="false" />
         <activity
-            android:name=".activity_menu"
+            android:name=".estadistica_de_sueno"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_sueno"
+            android:exported="false" />
+        <activity
+            android:name=".activity_menu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

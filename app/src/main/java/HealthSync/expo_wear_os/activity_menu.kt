@@ -1,6 +1,8 @@
 package HealthSync.expo_wear_os
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,14 @@ class activity_menu : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val siguiente = findViewById<ImageView>(R.id.imgbtnSueno)
+
+        siguiente.setOnClickListener {
+            val intent = Intent(this, activity_sueno::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }
