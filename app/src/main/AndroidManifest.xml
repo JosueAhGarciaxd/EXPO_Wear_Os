@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="HealthSync.expo_wear_os">
 
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.SENSOR_ACCELEROMETER"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EXPO_WEAR_OS"
         tools:targetApi="31">
+        <activity
+            android:name=".activity_StepCounter"
+            android:exported="false" />
         <activity
             android:name=".estadistica_de_sueno"
             android:exported="false" />
