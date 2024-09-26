@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "787278371022",
+    "project_id": "sleeprecords-c874e",
+    "storage_bucket": "sleeprecords-c874e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787278371022:android:5545538bfe0073946fd89f",
+        "android_client_info": {
+          "package_name": "HealthSync.expo_wear_os"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHfINiBunmOfrvgmkrsFKkA_XtBc0tII4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
