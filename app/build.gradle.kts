@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.wear)
     implementation(libs.firebase.firestore.ktx)
+    implementation("com.oracle.database.jdbc:ojdbc6:11.2.0.4")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
