@@ -47,34 +47,32 @@ class estadistica_de_sueno : AppCompatActivity() {
                 }
 
                 val sql = """
-                    SELECT hora_dormir, horas_dormidas
+                    SELECT SUM(horas_dormidas) as total_horas,
+                           COUNT(DISTINCT TRUNC(hora_dormir)) as dias_con_datos
                     FROM sueno
-                    WHERE hora_dormir >= SYSDATE - 7
-                    ORDER BY hora_dormir DESC
+                    WHERE hora_dormir >= TRUNC(SYSDATE) - 7
+                    AND hora_dormir < TRUNC(SYSDATE)
                 """
                 preparedStatement = connection.prepareStatement(sql)
                 resultSet = preparedStatement.executeQuery()
 
-                val estadisticas = StringBuilder()
                 var totalHoras = 0f
-                var diasRegistrados = 0
-                val dateFormat = SimpleDateFormat("EEEE dd/MM", Locale("es", "ES"))
+                var diasConDatos = 0
 
-                while (resultSet.next()) {
-                    val horaDormir = resultSet.getTimestamp("hora_dormir")
-                    val horasDormidas = resultSet.getFloat("horas_dormidas")
-
-                    estadisticas.append("${dateFormat.format(horaDormir)}: ${String.format("%.2f", horasDormidas)} horas\n")
-                    totalHoras += horasDormidas
-                    diasRegistrados++
+                if (resultSet.next()) {
+                    totalHoras = resultSet.getFloat("total_horas")
+                    diasConDatos = resultSet.getInt("dias_con_datos")
                 }
 
-                val promedio = if (diasRegistrados > 0) totalHoras / diasRegistrados else 0f
-
                 runOnUiThread {
-                    if (diasRegistrados > 0) {
-                        txtEstadisticasSemana.text = estadisticas.toString()
-                        txtPromedioSueno.text = String.format("Total de horas dormidas: %.2f horas\nPromedio: %.2f horas", totalHoras, promedio)
+                    if (totalHoras > 0) {
+                        txtEstadisticasSemana.text = String.format("Durante la semana has dormido %.2f horas", totalHoras)
+                        if (diasConDatos > 0) {
+                            val promedioDiario = totalHoras / diasConDatos
+                            txtPromedioSueno.text = String.format("Promedio diario: %.2f horas (basado en %d días con datos)", promedioDiario, diasConDatos)
+                        } else {
+                            txtPromedioSueno.text = "No se pudo calcular el promedio diario"
+                        }
                     } else {
                         txtEstadisticasSemana.text = "No hay datos de sueño en los últimos 7 días"
                         txtPromedioSueno.text = ""
