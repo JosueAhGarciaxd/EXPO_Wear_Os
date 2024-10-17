@@ -1,8 +1,10 @@
 package HealthSync.expo_wear_os
 
 import Modelo.ClaseConexion
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.sql.Connection
@@ -25,6 +27,13 @@ class estadistica_de_sueno : AppCompatActivity() {
 
         btnCargarEstadisticas.setOnClickListener {
             cargarDatosSueno()
+        }
+
+
+        val btnAtras = findViewById<ImageView>(R.id.imgatras2)
+        btnAtras.setOnClickListener {
+            val intent = Intent(this, activity_sueno::class.java)
+            startActivity(intent)
         }
 
         // Cargar datos automáticamente al abrir la actividad
@@ -69,7 +78,7 @@ class estadistica_de_sueno : AppCompatActivity() {
                         txtEstadisticasSemana.text = String.format("Durante la semana has dormido %.2f horas", totalHoras)
                         if (diasConDatos > 0) {
                             val promedioDiario = totalHoras / diasConDatos
-                            txtPromedioSueno.text = String.format("Promedio diario: %.2f horas (basado en %d días con datos)", promedioDiario, diasConDatos)
+                            //txtPromedioSueno.text = String.format("Promedio diario: %.2f horas (basado en %d días con datos)", promedioDiario, diasConDatos)
                         } else {
                             txtPromedioSueno.text = "No se pudo calcular el promedio diario"
                         }

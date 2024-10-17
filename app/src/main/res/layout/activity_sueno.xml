@@ -15,18 +15,17 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="154dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Ciclo de Sueño"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.073" />
+            app:layout_constraintVertical_bias="0.127" />
 
         <EditText
             android:id="@+id/txtHoraSueno"
@@ -38,10 +37,10 @@
             android:textColor="#575454"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.189" />
+            app:layout_constraintVertical_bias="0.284" />
 
         <TextView
             android:id="@+id/txtResultado"
@@ -56,7 +55,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.502" />
+            app:layout_constraintVertical_bias="0.545" />
 
         <Button
             android:id="@+id/btnsueno"
