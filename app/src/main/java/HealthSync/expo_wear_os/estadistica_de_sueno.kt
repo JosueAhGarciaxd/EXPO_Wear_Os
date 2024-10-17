@@ -9,8 +9,6 @@ import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
-import java.text.SimpleDateFormat
-import java.util.*
 
 class estadistica_de_sueno : AppCompatActivity() {
     private lateinit var txtEstadisticasSemana: TextView
@@ -46,12 +44,14 @@ class estadistica_de_sueno : AppCompatActivity() {
                     return@Thread
                 }
 
+                // Consulta SQL para obtener las horas de sueño de los últimos 7 días
                 val sql = """
-                    SELECT SUM(horas_dormidas) as total_horas,
-                           COUNT(DISTINCT TRUNC(hora_dormir)) as dias_con_datos
+                    SELECT TRUNC(hora_dormir) as dia,
+                           SUM(LEAST(horas_dormidas, 8)) as horas_dormidas
                     FROM sueno
-                    WHERE hora_dormir >= TRUNC(SYSDATE) - 7
-                    AND hora_dormir < TRUNC(SYSDATE)
+                    WHERE hora_dormir >= (SELECT MAX(hora_dormir) FROM sueno) - INTERVAL '7' DAY
+                    GROUP BY TRUNC(hora_dormir)
+                    ORDER BY dia DESC
                 """
                 preparedStatement = connection.prepareStatement(sql)
                 resultSet = preparedStatement.executeQuery()
@@ -59,9 +59,9 @@ class estadistica_de_sueno : AppCompatActivity() {
                 var totalHoras = 0f
                 var diasConDatos = 0
 
-                if (resultSet.next()) {
-                    totalHoras = resultSet.getFloat("total_horas")
-                    diasConDatos = resultSet.getInt("dias_con_datos")
+                while (resultSet.next()) {
+                    totalHoras += resultSet.getFloat("horas_dormidas")
+                    diasConDatos++
                 }
 
                 runOnUiThread {
